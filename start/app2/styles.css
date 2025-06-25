@@ -223,7 +223,7 @@ section h2 {
 
 /* 4a. Flex/Grid 2D - Hot News - Flex Version */
 
-.hot-flex {
+/* .hot-flex {
   display: flex;
   gap: 1rem;
   height: 600px;
@@ -247,7 +247,7 @@ section h2 {
   display: flex;
   gap: 1rem;
   height: 50%;
-}
+} */
 
 /* 4b. Flex/Grid 2D - Hot News - Grid Version */
 
@@ -443,3 +443,71 @@ section h2 {
 }
 
 /* 7. Images and Styling */
+
+footer {
+  background: black;
+  color: white;
+}
+
+footer p {
+  max-width: 1500px;
+  padding: 2rem 4rem;
+  text-align: center;
+}
+
+/* text overlay on top of the cards */
+/* parent container relative => child absolute */
+/* card relative => text absolute */
+
+.hot-card {
+  position: relative;
+}
+
+.hot-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+}
+
+/* setting up hover effect on cards */
+
+.masonry-item {
+  position: relative;
+}
+
+.masonry-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  /* transparent before hover */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.masonry-item::after {
+  content: "View Story";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* transparent before hover */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.masonry-item:hover::before,
+.masonry-item:hover::after {
+  /* when hover show */
+  opacity: 1;
+}
